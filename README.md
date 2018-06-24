@@ -47,3 +47,6 @@ In case players do not have all their weapons on mission start, you can add weap
 
 __Add briefing entry:__\
 Adds a Diary entry to the briefing menu warning players that this script is activated. 
+
+## Additional
+Discussion can be found in the [BI Thread](https://forums.bohemia.net/forums/topic/217470-release-ace-punish-unknownenemy-weapon-script/), for bug reports please use this GitHub Repo.
