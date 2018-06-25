@@ -8,14 +8,14 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=36;
+		nextID=38;
 	};
 	class Camera
 	{
-		pos[]={912.34845,6.4698243,2351.9392};
-		dir[]={-0.23016839,0.029345956,0.97282344};
-		up[]={0.0067089205,0.99947488,-0.028354649};
-		aside[]={0.9732604,4.2358297e-006,0.23028415};
+		pos[]={915.94696,7.4599123,2350.6077};
+		dir[]={-0.63012743,-0.28190312,0.7236672};
+		up[]={-0.18521138,0.95929688,0.21270567};
+		aside[]={0.7542612,-3.9697625e-007,0.65678257};
 	};
 };
 binarizationWanted=0;
@@ -109,7 +109,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=8;
+									items=11;
 									class Item0
 									{
 										class data
@@ -222,6 +222,48 @@ class CustomAttributes
 											value="diw_unknownwp_briefing";
 										};
 									};
+									class Item8
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="diw_unknownwp_propagation";
+										};
+									};
+									class Item9
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="ace_finger_enabled";
+										};
+									};
+									class Item10
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="ace_overheating_unjamfailchance";
+										};
+									};
 								};
 							};
 						};
@@ -238,7 +280,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=8;
+									items=11;
 									class Item0
 									{
 										class data
@@ -264,7 +306,7 @@ class CustomAttributes
 																"SCALAR"
 															};
 														};
-														value=100;
+														value=0;
 													};
 												};
 												class Item1
@@ -489,7 +531,7 @@ class CustomAttributes
 																"SCALAR"
 															};
 														};
-														value=100;
+														value=2;
 													};
 												};
 												class Item1
@@ -579,7 +621,142 @@ class CustomAttributes
 																"BOOL"
 															};
 														};
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
 														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item8
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item9
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item10
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=0;
 													};
 												};
 												class Item1
@@ -659,16 +836,59 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={912.00757,5.0014391,2352.0264};
+						position[]={912.008,5.0014391,2352.0261};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						name="player1";
 						isPlayer=1;
 					};
 					id=32;
 					type="B_soldier_AR_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male06ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes

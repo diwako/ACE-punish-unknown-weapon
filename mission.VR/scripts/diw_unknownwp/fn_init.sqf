@@ -24,37 +24,46 @@ missionNamespace setVariable ["diw_unknownwp_init",true];
 
 if ! (ace_overheating_overheatingDispersion) then {systemChat "===Punishable weapons: Warning, ACE dispersion not enabled!==="};
 
-[] spawn {
-  if(isServer) then {
-      waitUntil { sleep 0.1; cba_missiontime > diw_unknownwp_cooldown };
-      diw_unknownwp_weapon_whitelist = [];
-      "DIW_ADD_WEAPON" addPublicVariableEventHandler {
-        params ["_varname","_weapon"];
-        diw_unknownwp_weapon_whitelist pushBackUnique toUpper(_weapon);
-        [_weapon,{ace_overheating_cacheWeaponData setVariable [_this,nil]}] remoteExec ["call"];
-        publicVariable "diw_unknownwp_weapon_whitelist";
-      };
-      {
-        diw_unknownwp_weapon_whitelist pushBackUnique toUpper(primaryWeapon _x);
-        false
-      } count ([] call CBA_fnc_players);
-      if(typeName diw_unknownwp_add_weapons == typeName "") then {
-        diw_unknownwp_add_weapons = diw_unknownwp_add_weapons splitString ",";
+if(isNil "diw_unknownwp_local_weapons") then {
+  diw_unknownwp_local_weapons = [];
+};
+
+if(diw_unknownwp_propagation) then {
+  [] spawn {
+    if(isServer) then {
+        waitUntil { sleep 0.1; cba_missiontime > diw_unknownwp_cooldown };
+        diw_unknownwp_weapon_whitelist = [];
+        "DIW_ADD_WEAPON" addPublicVariableEventHandler {
+          params ["_varname","_weapon"];
+          diw_unknownwp_weapon_whitelist pushBackUnique toUpper(_weapon);
+          [_weapon,{ace_overheating_cacheWeaponData setVariable [_this,nil]}] remoteExec ["call"];
+          publicVariable "diw_unknownwp_weapon_whitelist";
+        };
         {
-          diw_unknownwp_weapon_whitelist pushBackUnique toUpper(_x);
+          diw_unknownwp_weapon_whitelist pushBackUnique toUpper(primaryWeapon _x);
           false
-        } count diw_unknownwp_add_weapons;
-      };
-      publicVariable "diw_unknownwp_weapon_whitelist";
-  } else {
-      waitUntil { sleep 1; time > 30 };
-      waitUntil { sleep 1; !isNil "diw_unknownwp_weapon_whitelist" };
-      if(!(toUpper(primaryWeapon player) in diw_unknownwp_weapon_whitelist) && (primaryWeapon player) != "") then {
-        // add weapon to whitelist
-        DIW_ADD_WEAPON = primaryWeapon player;
-        publicVariableServer "DIW_ADD_WEAPON";
-      };
+        } count ([] call CBA_fnc_players);
+        if(typeName diw_unknownwp_add_weapons == typeName "") then {
+          diw_unknownwp_add_weapons = diw_unknownwp_add_weapons splitString ",";
+          {
+            diw_unknownwp_weapon_whitelist pushBackUnique toUpper(_x);
+            false
+          } count diw_unknownwp_add_weapons;
+        };
+        publicVariable "diw_unknownwp_weapon_whitelist";
+    } else {
+        waitUntil { sleep 1; time > 30 };
+        waitUntil { sleep 1; !isNil "diw_unknownwp_weapon_whitelist" };
+        private _weaponUpper = toUpper(primaryWeapon player);
+        if(!(_weaponUpper in diw_unknownwp_weapon_whitelist || {_weaponUpper in diw_unknownwp_local_weapons}) && (primaryWeapon player) != "") then {
+          // add weapon to whitelist
+          DIW_ADD_WEAPON = primaryWeapon player;
+          publicVariableServer "DIW_ADD_WEAPON";
+        };
+    };
   };
+} else {
+  diw_unknownwp_weapon_whitelist = [];
 };
 
 if(hasInterface) then {
@@ -64,16 +73,16 @@ if(hasInterface) then {
     ]];
   };
 
-
   player addEventHandler["Fired",{
     _weapon = _this select 1;
     if(!(primaryWeapon ace_player == _weapon)) exitWith {};
-    if(isNil "diw_unknownwp_weapon_whitelist" || {(count diw_unknownwp_weapon_whitelist) == 0} ) exitWith {};
+    if(isNil "diw_unknownwp_weapon_whitelist") exitWith {};
 
     private _weaponData = ace_overheating_cacheWeaponData getVariable _weapon;
     if(isNil "_weaponData") then {
+      private _weaponUpper = toUpper(_weapon);
       // weapon class has not been initialized
-      if(!(toUpper(_weapon) in diw_unknownwp_weapon_whitelist)) then {
+      if(!(_weaponUpper in diw_unknownwp_weapon_whitelist || {_weaponUpper in diw_unknownwp_local_weapons})) then {
         // weapon not in whitelist
         _weaponData = [_weapon] call ace_overheating_fnc_getWeaponData;
           /*
@@ -92,9 +101,10 @@ if(hasInterface) then {
     params ["_unit", "_weapon", "_muzzle", "_newMagazine", "_oldMagazine"];
 
     if(!(primaryWeapon ace_player == _weapon)) exitWith {};
-    if(isNil "diw_unknownwp_weapon_whitelist" || {(count diw_unknownwp_weapon_whitelist) == 0} ) exitWith {};
+    if(isNil "diw_unknownwp_weapon_whitelist") exitWith {};
 
-    if(!(toUpper(_weapon) in diw_unknownwp_weapon_whitelist)) then {
+    private _weaponUpper = toUpper(_weapon);
+    if(!(_weaponUpper in diw_unknownwp_weapon_whitelist || {_weaponUpper in diw_unknownwp_local_weapons})) then {
       // weapon not in whitelist
       if( (random 100) <= diw_unknownwp_reload_failure ) then {
         // reload failed
@@ -110,8 +120,9 @@ if(hasInterface) then {
     params["_unit","_weapon"];
     if(_unit == ace_player) then {
       if(!(primaryWeapon ace_player == _weapon)) exitWith {};
-      if(isNil "diw_unknownwp_weapon_whitelist" || {(count diw_unknownwp_weapon_whitelist) == 0} ) exitWith {};
-      if(!(toUpper(_weapon) in diw_unknownwp_weapon_whitelist)) then {
+      if(isNil "diw_unknownwp_weapon_whitelist") exitWith {};
+      private _weaponUpper = toUpper(_weapon);
+      if(!(_weaponUpper in diw_unknownwp_weapon_whitelist || {_weaponUpper in diw_unknownwp_local_weapons})) then {
         if((random 100) < diw_unknownwp_jam_explosion) then {
           private _model = getText(configfile >> "cfgweapons" >> _weapon >> "model");
           if ((_model find ".") == -1) then {

@@ -24,7 +24,7 @@ Any configuration will be done within Eden editor and in `Settings -> Addon Opti
 ### For mission makers:
 Here is a small rundown what which setting does and how in general this script works.
 
-__Enable:__  
+__Enable:__
 Enables the script on mission start.
 
 __Wait after mission begin:__\
@@ -46,7 +46,20 @@ __Add more weapons:__ \
 In case players do not have all their weapons on mission start, you can add weapon classes comma separate and WITHOUT whitespaces to this input field. Those weapons will be added as known weapon.
 
 __Add briefing entry:__\
-Adds a Diary entry to the briefing menu warning players that this script is activated. 
+Adds a Diary entry to the briefing menu warning players that this script is activated.
+
+__Enable propagation:__\
+Enables if the server should collect weapon class names from players and add them to the whitelist. This is an advanced option and only experienced mission makers should use this. This option could be used to set up a play scenario for TvTs for example.
+
+### Variables
+This script uses some variables which are not listed inside the addon options menu.
+
+__diw_unknownwp_local_weapons:__\
+This is a _local_ array which ADDS to the whitelist from the server. It can be used to give units of choice more weapon choices without penalty. This is an advanced mission maker variable as there are rules for this variable.
+* Only strings are allowed
+* Every string MUST be fully uppercase
+* No whitespaces in class names
+* Must be filled on mission start for the unit, mid mission not supported!
 
 ## Additional
 Discussion can be found in the [BI Thread](https://forums.bohemia.net/forums/topic/217470-release-ace-punish-unknownenemy-weapon-script/), for bug reports please use this GitHub Repo.

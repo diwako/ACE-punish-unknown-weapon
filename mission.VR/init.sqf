@@ -6,3 +6,6 @@ if (!isMultiplayer) then {
 	[["<t color='#ffff00'>[ ACE Arsenal ]</t>", {[player, player] call ace_arsenal_fnc_openBox}, 0, -85, false, true, "", ""]] call CBA_fnc_addPlayerAction;
 	enableSaving [false, false];
 };
+
+// add local weapon whitelist
+// diw_unknownwp_local_weapons = ["ARIFLE_AK12_F"]
