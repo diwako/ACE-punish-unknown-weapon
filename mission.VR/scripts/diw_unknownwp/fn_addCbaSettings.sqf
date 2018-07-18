@@ -90,7 +90,7 @@
 [
   "diw_unknownwp_propagation"
   ,"CHECKBOX"
-  ,["Enable propagation","Set if the server should sync trained weapons or not. Disables the 'Add more weapons' option!"]
+  ,["Enable propagation","Set if the server should sync trained weapons or not. Disables the 'Add more weapons' option if unchecked!"]
   ,[CBA_SETTINGS_CAT,"Advanced"]
   ,true
   ,true
