@@ -1,0 +1,10 @@
+name = "Diwako's Punish unknown weapon";
+// picture = "";
+hidePicture = "true";
+hideName = "false";
+actionName = "Website";
+action = "https://github.com/diwako/ACE-punish-unknown-weapon";
+description = "Diwako's Punish unknown weapon - Version 1.2";
+overview  = "Diwako's Punish unknown weapon - Version 1.2";
+// logo = "";
+// logoOver = "";
