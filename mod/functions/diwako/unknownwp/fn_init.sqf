@@ -31,33 +31,36 @@ if (isNil "diwako_unknownwp_local_weapons") then {
 if (diwako_unknownwp_propagation) then {
   [] spawn {
     if (isServer) then {
-        waitUntil { sleep 0.1; cba_missiontime > diwako_unknownwp_cooldown };
-        diwako_unknownwp_weapon_whitelist = [];
-        "DIW_ADD_WEAPON" addPublicVariableEventHandler {
-          params ["_varname","_weapon"];
-          diwako_unknownwp_weapon_whitelist pushBackUnique toUpper(_weapon);
-          [_weapon,{ace_overheating_cacheWeaponData setVariable [_this,nil]}] remoteExec ["call"];
-          publicVariable "diwako_unknownwp_weapon_whitelist";
-        };
-        {
-          diwako_unknownwp_weapon_whitelist pushBackUnique toUpper(primaryWeapon _x);
-        } forEach ([] call CBA_fnc_players);
-        if (typeName diwako_unknownwp_add_weapons == typeName "") then {
-          diwako_unknownwp_add_weapons = diwako_unknownwp_add_weapons splitString ",";
-          {
-            diwako_unknownwp_weapon_whitelist pushBackUnique toUpper(_x);
-          } forEach diwako_unknownwp_add_weapons;
-        };
+      waitUntil { sleep 0.1; cba_missiontime > diwako_unknownwp_cooldown };
+      diwako_unknownwp_weapon_whitelist = [];
+
+      ["diwako_unknownwp_addWeapon",{
+        params ["_weapon"];
+        diwako_unknownwp_weapon_whitelist pushBackUnique toUpper(_weapon);
         publicVariable "diwako_unknownwp_weapon_whitelist";
+
+        ["diwako_unknownwp_clearWeaponStat",[_weapon]] call CBA_fnc_globalEvent;
+      }] call CBA_fnc_addEventHandler;
+
+      {
+        diwako_unknownwp_weapon_whitelist pushBackUnique toUpper(primaryWeapon _x);
+      } forEach ([] call CBA_fnc_players);
+      
+      if (typeName diwako_unknownwp_add_weapons == typeName "") then {
+        diwako_unknownwp_add_weapons = diwako_unknownwp_add_weapons splitString ",";
+        {
+          diwako_unknownwp_weapon_whitelist pushBackUnique toUpper(_x);
+        } forEach diwako_unknownwp_add_weapons;
+      };
+      publicVariable "diwako_unknownwp_weapon_whitelist";
     } else {
-        waitUntil { sleep 1; time > 30 };
-        waitUntil { sleep 1; !isNil "diwako_unknownwp_weapon_whitelist" };
-        private _weaponUpper = toUpper(primaryWeapon player);
-        if (!(_weaponUpper in diwako_unknownwp_weapon_whitelist || {_weaponUpper in diwako_unknownwp_local_weapons}) && (primaryWeapon player) != "") then {
-          // add weapon to whitelist
-          DIW_ADD_WEAPON = primaryWeapon player;
-          publicVariableServer "DIW_ADD_WEAPON";
-        };
+      waitUntil { sleep 1; time > 30 };
+      waitUntil { sleep 1; !isNil "diwako_unknownwp_weapon_whitelist" };
+      private _weaponUpper = toUpper(primaryWeapon player);
+      if (!(_weaponUpper in diwako_unknownwp_weapon_whitelist || {_weaponUpper in diwako_unknownwp_local_weapons}) && (primaryWeapon player) != "") then {
+        // add weapon to whitelist
+        ["diwako_unknownwp_addWeapon",[primaryWeapon player]] call CBA_fnc_serverEvent;
+      };
     };
   };
 } else {
@@ -81,4 +84,9 @@ if (hasInterface) then {
   ["ace_weaponJammed", {
     _this call diwako_unknownwp_fnc_jammedEh;
   }] call CBA_fnc_addEventHandler;
+
+  ["diwako_unknownwp_clearWeaponStat",{
+    params ["_weapon"];
+    ace_overheating_cacheWeaponData setVariable [_weapon,nil];
+  }] call CBA_fnc_addEventHandler
 };
