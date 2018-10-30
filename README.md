@@ -54,7 +54,7 @@ Enables if the server should collect weapon class names from players and add the
 ### Variables
 This script uses some variables which are not listed inside the addon options menu.
 
-__diw_unknownwp_local_weapons:__\
+__diwako_unknownwp_local_weapons:__\
 This is a _local_ array which ADDS to the whitelist from the server. It can be used to give units of choice more weapon choices without penalty. This is an advanced mission maker variable as there are rules for this variable.
 * Only strings are allowed
 * Every string MUST be fully uppercase
