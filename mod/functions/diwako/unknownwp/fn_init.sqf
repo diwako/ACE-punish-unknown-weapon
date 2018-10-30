@@ -14,15 +14,15 @@
   diwako 2018-06-24
 */
 
-if ! (diwako_unknownwp_enable) exitWith {};
+if !(diwako_unknownwp_enable) exitWith {};
 
-if ! (isClass(configFile >> "CfgPatches" >> "ace_overheating")) exitWith {hintC "ACE Overheating not found! Punishing unknown weapons cannot be used!"};
-if ! (ace_overheating_enabled) exitWith {hintC "ACE Overheating not enabled! Punishing unknown weapons cannot be used!"};
+if !(isClass(configFile >> "CfgPatches" >> "ace_overheating")) exitWith {hintC "ACE Overheating not found! Punishing unknown weapons cannot be used!"};
+if !(ace_overheating_enabled) exitWith {hintC "ACE Overheating not enabled! Punishing unknown weapons cannot be used!"};
 
 if (missionNamespace getVariable ["diwako_unknownwp_init",false]) exitWith {};
 missionNamespace setVariable ["diwako_unknownwp_init",true];
 
-if ! (ace_overheating_overheatingDispersion) then {systemChat "===Punishable weapons: Warning, ACE dispersion not enabled!==="};
+if !(ace_overheating_overheatingDispersion) then {systemChat "===Punishable weapons: Warning, ACE dispersion not enabled!==="};
 
 if (isNil "diwako_unknownwp_local_weapons") then {
   diwako_unknownwp_local_weapons = [];
