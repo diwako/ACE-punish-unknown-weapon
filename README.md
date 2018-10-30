@@ -54,12 +54,25 @@ Enables if the server should collect weapon class names from players and add the
 ### Variables
 This script uses some variables which are not listed inside the addon options menu.
 
-__diw_unknownwp_local_weapons:__\
+__diwako_unknownwp_local_weapons:__\
 This is a _local_ array which ADDS to the whitelist from the server. It can be used to give units of choice more weapon choices without penalty. This is an advanced mission maker variable as there are rules for this variable.
 * Only strings are allowed
 * Every string MUST be fully uppercase
 * No whitespaces in class names
 * Must be filled on mission start for the unit, mid mission not supported!
+
+### CBA Events
+This script/mod uses CBA events
+
+__diwako_unknownwp_clearWeaponStat:__\
+Removes any disadvantage from a gun (does not fill whitelist)\
+Global event\
+Params: [_weapon]
+
+__diwako_unknownwp_addWeapon:__\
+Adds weapon to global whitelist and triggers the "diwako_unknownwp_clearWeaponStat" event\
+Server event\
+Params: [_weapon]
 
 ## Additional
 Discussion can be found in the [BI Thread](https://forums.bohemia.net/forums/topic/217470-release-ace-punish-unknownenemy-weapon-script/), for bug reports please use this GitHub Repo.

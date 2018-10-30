@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="diwako_unknownwp">
+	<Package name="unknownwp">
+        <Key ID="STR_unknownwp_empty">
+            <Original></Original>
+            <English></English>
+            <Czech></Czech>
+            <French></French>
+            <German></German>
+            <Italian></Italian>
+            <Polish></Polish>
+            <Portuguese></Portuguese>
+            <Russian></Russian>
+            <Spanish></Spanish>
+            <Korean></Korean>
+            <Japanese></Japanese>
+            <Chinesesimp></Chinesesimp>
+            <Chinese></Chinese>
+        </Key>
+        <Key ID="STR_unknownwp_category">
+            <Original>Diwako's Punish unknown weapon</Original>
+            <English>Diwako's Punish unknown weapon</English>
+            <German>Diwako's Punish unknown weapon</German>
+        </Key>
+        <Key ID="STR_unknownwp_enable">
+            <Original>Enable</Original>
+            <English>Enable</English>
+            <German>Anschalten</German>
+        </Key>
+        <Key ID="STR_unknownwp_enable_desc">
+            <Original>Enable/Disable punishing unknown weapons</Original>
+            <English>Enable/Disable punishing unknown weapons</English>
+            <German>Anschalten</German>
+        </Key>
+        <Key ID="STR_unknownwp_wait">
+            <Original>Wait after mission begin</Original>
+            <English>Wait after mission begin</English>
+            <German>Nach Missionsanfang warten</German>
+        </Key>
+        <Key ID="STR_unknownwp_wait_desc">
+            <Original>How long should the server wait in seconds to populate known weapons? Do not worry about JIPs, their weapons will be added as well once they connect!</Original>
+            <English>How long should the server wait in seconds to populate known weapons? Do not worry about JIPs, their weapons will be added as well once they connect!</English>
+            <German>Wie lange soll der server warten, bis dieser bekannte Waffen hinzufügen soll? Keine Sorge wegen JIPs, deren Waffen werden hinzugefügt wenn diese sich mit dem Server verbinden!</German>
+        </Key>
+        <Key ID="STR_unknownwp_dispersion">
+            <Original>Add weapon dispersion</Original>
+            <English>Add weapon dispersion</English>
+            <German>Füge Waffendispersion hinzu</German>
+        </Key>
+        <Key ID="STR_unknownwp_dispersion_desc">
+            <Original>This will add a flat value to dispersion (makes gun inaccurate when it gets hot)</Original>
+            <English>This will add a flat value to dispersion (makes gun inaccurate when it gets hot)</English>
+            <German>Dies fügt zu der Dispersion einen flachen Wert zu (macht die Waffe ungenau wenn diese heiß wird)</German>
+        </Key>
+        <Key ID="STR_unknownwp_jamchance">
+            <Original>Add jam chance</Original>
+            <English>Add jam chance</English>
+            <German>Jam Chance hinzufügen</German>
+        </Key>
+        <Key ID="STR_unknownwp_jamchance_desc">
+            <Original>This will add the selected percentage to the weapon</Original>
+            <English>This will add the selected percentage to the weapon</English>
+            <German>Dies fügt den gewählten Wert zur bestehenden Jam Chance hinzu</German>
+        </Key>
+        <Key ID="STR_unknownwp_reload">
+            <Original>Reload failure chance</Original>
+            <English>Reload failure chance</English>
+            <German>Chance auf Nachladefehler</German>
+        </Key>
+        <Key ID="STR_unknownwp_reload_desc">
+            <Original>Chance that the reload wil fail and leave an empty mag inside the gun</Original>
+            <English>Chance that the reload wil fail and leave an empty mag inside the gun</English>
+            <German>Chance, dass das nachladen einer unbekannte Waffe nicht geklappt hat und ein leeres Magazin hinterlässt</German>
+        </Key>
+        <Key ID="STR_unknownwp_explision">
+            <Original>Chance to destroy weapon on jam</Original>
+            <English>Chance to destroy weapon on jam</English>
+            <German>Chance, dass Waffe zerstört wird</German>
+        </Key>
+        <Key ID="STR_unknownwp_explision_desc">
+            <Original>Chance that the unknown weapon will be destroyed and inflict small damage to player when it jams</Original>
+            <English>Chance that the unknown weapon will be destroyed and inflict small damage to player when it jams</English>
+            <German>Chance mit der die unbekannte Waffe in der Hand explodiert und den Spieler ein wenig Schaden hinzufpgt wenn diese jammed</German>
+        </Key>
+        <Key ID="STR_unknownwp_addweapons">
+            <Original>Add more weapons</Original>
+            <English>Add more weapons</English>
+            <German>Mehr Waffen hinzufügen</German>
+        </Key>
+        <Key ID="STR_unknownwp_addweapons_desc">
+            <Original>Use this to add primary weapons players will not have on mission start. Write in classnames with commas separating them, NO WHITESPACES!</Original>
+            <English>Use this to add primary weapons players will not have on mission start. Write in classnames with commas separating them, NO WHITESPACES!</English>
+            <German>Benutze diese Option um mehr Primärwaffen hinzuzufügen, die Spieler nicht am Missionsanfang haben. Schreibe die Klassennamen Komma separiert hier rein. KEINE LEERZEICHEN!</German>
+        </Key>
+        <Key ID="STR_unknownwp_briefing">
+            <Original>Add briefing entry</Original>
+            <English>Add briefing entry</English>
+            <German>Briefing-Eintrag hinzufügen</German>
+        </Key>
+        <Key ID="STR_unknownwp_briefing_desc">
+            <Original>Add a diary entry that this script is active</Original>
+            <English>Add a diary entry that this script is active</English>
+            <German>Fügt einen Briefings-Eintrag hinzu wenn die Mod aktiv ist</German>
+        </Key>
+        <Key ID="STR_unknownwp_propagation">
+            <Original>Enable propagation</Original>
+            <English>Enable propagation</English>
+            <German>Propagation anschalten</German>
+        </Key>
+        <Key ID="STR_unknownwp_propagation_desc">
+            <Original>Set if the server should sync trained weapons or not. Disables the 'Add more weapons' option if unchecked!</Original>
+            <English>Set if the server should sync trained weapons or not. Disables the 'Add more weapons' option if unchecked!</English>
+            <German>Setzt, ob der Server die bekannten waffen synchronisieren soll oder nicht. Es schalten die Option "Mehr "affen hinzufügen" aus wenn diese Option nicht angeschalten ist!</German>
+        </Key>
+        <Key ID="STR_unknownwp_briefing_head">
+            <Original>Picking up enemy weapons</Original>
+            <English>Picking up enemy weapons</English>
+            <German>Waffen von Gegnern aufheben</German>
+        </Key>
+        <Key ID="STR_unknownwp_briefing_body1">
+            <Original>Warning: Punish unknown weapons is active!</Original>
+            <English>Warning: Punish unknown weapons is active!</English>
+            <German>Achtung: Punish unbekannte Waffen ist aktiv!</German>
+        </Key>
+        <Key ID="STR_unknownwp_briefing_body2">
+            <Original>Picking up unknown weapons, such as enemy weapons, will result in degraded weapon efficiency! Symptoms can be less accuracy, higher jamming chance and reload failures due to poor weapon maintenance or handling.</Original>
+            <English>Picking up unknown weapons, such as enemy weapons, will result in degraded weapon efficiency! Symptoms can be less accuracy, higher jamming chance and reload failures due to poor weapon maintenance or handling.</English>
+            <German>Das aufheben von unbekannten waffen, zum Beispiel Waffen von Gegnern, führt zur verschlechterten Waffeneffizienz! Wegen schlechter Instanthaltung der Waffen können Symptome schlechte Genauigkeit, höhere Chance, dass die Waffe Jammed oder Nachladefehler sein!</German>
+        </Key>
+        <Key ID="STR_unknownwp_briefing_body3">
+            <Original>In extreme cases ammunition can misfire and cause weapon destruction and possible injury to the current user!</Original>
+            <English>In extreme cases ammunition can misfire and cause weapon destruction and possible injury to the current user!</English>
+            <German>In extremen Fällen kann die Munition in der Waffe Fehlzünden und führt zur Zerstörung der waffe und kann dem zurzeitigen Nutzer verletzen!</German>
+        </Key>
+        <Key ID="STR_unknownwp_weapon_destroyed">
+            <Original>Weapon has been destroyed</Original>
+            <English>Weapon has been destroyed</English>
+            <German>Deine Waffe wurde zerstört</German>
+        </Key>
+        <Key ID="STR_unknownwp_weapon_reload_failed">
+            <Original>Reload failed</Original>
+            <English>Reload failed</English>
+            <German>Nachladen fehlgeschlagen</German>
+        </Key>
+	</Package>
+</Project>
