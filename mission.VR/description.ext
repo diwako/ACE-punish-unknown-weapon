@@ -1,8 +1,13 @@
 class cfgFunctions {
     createShortcuts = 1;
-    #include "scripts\diw_unknownwp\cfgFunctions.hpp"
+    #include "scripts\diwako\unknownwp\cfgFunctions.hpp"
 };
 
 class Extended_PreInit_EventHandlers {
-	#include "scripts\diw_unknownwp\Extended_PreInit_EventHandlers.hpp"
+	#include "scripts\diwako\unknownwp\Extended_PreInit_EventHandlers.hpp"
+};
+
+
+class Extended_PostInit_EventHandlers {
+    #include "scripts\diwako\unknownwp\Extended_PostInit_EventHandlers.hpp"
 };
