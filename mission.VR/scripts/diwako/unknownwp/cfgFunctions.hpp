@@ -1,5 +1,5 @@
-class diw_unknownwp {
-  tag="diw_unknownwp";
+class diwako_unknownwp {
+  tag="diwako_unknownwp";
   class functions {
     file = "scripts\diwako\unknownwp";
     class firedEh;
