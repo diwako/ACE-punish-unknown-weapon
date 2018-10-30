@@ -61,5 +61,18 @@ This is a _local_ array which ADDS to the whitelist from the server. It can be u
 * No whitespaces in class names
 * Must be filled on mission start for the unit, mid mission not supported!
 
+### CBA Events
+This script/mod uses CBA events
+
+__diwako_unknownwp_clearWeaponStat:__\
+Removes any disadvantage from a gun (does not fill whitelist)\
+Global event\
+Params: [_weapon]
+
+__diwako_unknownwp_addWeapon:__\
+Adds weapon to global whitelist and triggers the "diwako_unknownwp_clearWeaponStat" event\
+Server event\
+Params: [_weapon]
+
 ## Additional
 Discussion can be found in the [BI Thread](https://forums.bohemia.net/forums/topic/217470-release-ace-punish-unknownenemy-weapon-script/), for bug reports please use this GitHub Repo.
