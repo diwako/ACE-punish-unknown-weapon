@@ -27,6 +27,7 @@ if !(ace_overheating_overheatingDispersion) then {systemChat "===Punishable weap
 if (isNil "diwako_unknownwp_local_weapons") then {
   diwako_unknownwp_local_weapons = [];
 };
+diwako_unknownwp_cacheWeaponData = createHashMap;
 
 if (diwako_unknownwp_propagation) then {
   [] spawn {
@@ -90,6 +91,6 @@ if (hasInterface) then {
 
   ["diwako_unknownwp_clearWeaponStat",{
     params ["_weapon"];
-    ace_overheating_cacheWeaponData setVariable [_weapon,nil];
+    ace_overheating_cacheWeaponData set [_weapon, nil];
   }] call CBA_fnc_addEventHandler
 };

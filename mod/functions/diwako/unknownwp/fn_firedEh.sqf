@@ -17,8 +17,10 @@ params ["_weapon"];
 if !(primaryWeapon ace_player == _weapon) exitWith {};
 if (isNil "diwako_unknownwp_weapon_whitelist") exitWith {};
 
-private _weaponData = ace_overheating_cacheWeaponData getVariable _weapon;
-if (isNil "_weaponData") then {
+// private _weaponData = ace_overheating_cacheWeaponData get _weapon;
+private _weaponData = diwako_unknownwp_cacheWeaponData getOrDefault [_weapon, false];
+if !(_weaponData) then {
+  diwako_unknownwp_cacheWeaponData set [_weapon, true];
   private _weaponUpper = toUpper(_weapon);
   // weapon class has not been initialized
   if !(_weaponUpper in diwako_unknownwp_weapon_whitelist || {_weaponUpper in diwako_unknownwp_local_weapons}) then {
@@ -29,7 +31,8 @@ if (isNil "_weaponData") then {
       * 1: slowdownFactor <NUMBER>
       * 2: jamChance <NUMBER>
       */
-    private _weaponData = _weaponData vectorAdd [diwako_unknownwp_dispersion_add,0,diwako_unknownwp_jamchance_add / 100];
-    ace_overheating_cacheWeaponData setVariable [_weapon, _weaponData];
+    _weaponData set [0, (_weaponData select 0) + diwako_unknownwp_dispersion_add];
+    _weaponData set [2, (_weaponData select 2) + (diwako_unknownwp_jamchance_add / 100)];
+    ace_overheating_cacheWeaponData set [_weapon, _weaponData];
   };
 };

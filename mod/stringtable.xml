@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Project name="diwako_unknownwp">
 	<Package name="unknownwp">
-        <Key ID="STR_unknownwp_empty">
-            <Original></Original>
-            <English></English>
-            <Czech></Czech>
-            <French></French>
-            <German></German>
-            <Italian></Italian>
-            <Polish></Polish>
-            <Portuguese></Portuguese>
-            <Russian></Russian>
-            <Spanish></Spanish>
-            <Korean></Korean>
-            <Japanese></Japanese>
-            <Chinesesimp></Chinesesimp>
-            <Chinese></Chinese>
-        </Key>
         <Key ID="STR_unknownwp_category">
             <Original>Diwako's Punish unknown weapon</Original>
             <English>Diwako's Punish unknown weapon</English>
