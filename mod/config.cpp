@@ -1,5 +1,5 @@
-﻿#define REQUIRED_VERSION 1.82
-#define VERSION "1.2.1"
+﻿#define REQUIRED_VERSION 2.08
+#define VERSION "1.2.3"
 
 class CfgPatches {
   class diwako_unknownwp {
@@ -7,9 +7,9 @@ class CfgPatches {
     weapons[] = {};
     requiredVersion = REQUIRED_VERSION;
     requiredAddons[] = {
-      "cba_common"
-      ,"ace_common"
-      ,"ace_overheating"
+      "cba_common",
+      "ace_common",
+      "ace_overheating"
     };
     author[] = {"diwako"};
     authorUrl = "https://github.com/diwako/ACE-punish-unknown-weapon";

@@ -1,4 +1,4 @@
-Copyright 2018 diwako
+Copyright 2022 diwako
 
 This work (diwako_unknownwp or the like) uses the license Arma Public License Share Alike (APL-SA)
 

@@ -22,7 +22,7 @@
   ,[CBA_SETTINGS_CAT,"Basic"]
   ,true
   ,true
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
   "diwako_unknownwp_cooldown"
@@ -31,7 +31,7 @@
   ,[CBA_SETTINGS_CAT,"Basic"]
   ,[1, 600, 60, 0]
   ,true
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
   "diwako_unknownwp_dispersion_add"
@@ -40,7 +40,7 @@
   ,[CBA_SETTINGS_CAT,"Basic"]
   ,[0, 200, 25, 0]
   ,true
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
   "diwako_unknownwp_jamchance_add"
@@ -49,7 +49,7 @@
   ,[CBA_SETTINGS_CAT,"Basic"]
   ,[0, 100, 1.5, 2]
   ,true
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
   "diwako_unknownwp_reload_failure"
@@ -58,7 +58,7 @@
   ,[CBA_SETTINGS_CAT,"Basic"]
   ,[0, 100, 25, 0]
   ,true
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
   "diwako_unknownwp_jam_explosion"
@@ -67,7 +67,7 @@
   ,[CBA_SETTINGS_CAT,"Basic"]
   ,[0, 100, 2, 2]
   ,true
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
   "diwako_unknownwp_add_weapons"
@@ -76,7 +76,7 @@
   ,[CBA_SETTINGS_CAT,"Basic"]
   ,"arifle_Mk20_plain_F,arifle_CTAR_blk_F"
   ,true
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
   "diwako_unknownwp_briefing"
@@ -85,7 +85,7 @@
   ,[CBA_SETTINGS_CAT,"Basic"]
   ,true
   ,true
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
   "diwako_unknownwp_propagation"
@@ -94,4 +94,4 @@
   ,[CBA_SETTINGS_CAT,"Advanced"]
   ,true
   ,true
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
