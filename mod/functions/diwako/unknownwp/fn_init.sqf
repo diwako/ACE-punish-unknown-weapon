@@ -47,7 +47,7 @@ if (diwako_unknownwp_propagation) then {
         };
         publicVariable "diwako_unknownwp_weapon_whitelist";
     } else {
-        waitUntil { sleep 1; time > 5 };
+        waitUntil { sleep 1; time > 30 };
         waitUntil { sleep 1; !isNil "diwako_unknownwp_weapon_whitelist" };
         private _weaponUpper =toUpper ((getUnitLoadout player  param [0]) param [0,"Nothing"]);
         if (!(((diwako_unknownwp_weapon_whitelist findIf  {_x  in _weaponUpper}) > -1) || {_weaponUpper in diwako_unknownwp_local_weapons}) && (primaryWeapon player) != "") then {
