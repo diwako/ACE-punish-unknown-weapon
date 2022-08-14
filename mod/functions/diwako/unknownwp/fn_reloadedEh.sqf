@@ -19,7 +19,7 @@ if !(primaryWeapon ace_player == _weapon) exitWith {};
 if (isNil "diwako_unknownwp_weapon_whitelist") exitWith {};
 
 private _weaponUpper = toUpper(_weapon);
-if !(_weaponUpper in diwako_unknownwp_weapon_whitelist || {_weaponUpper in diwako_unknownwp_local_weapons}) then {
+if !(((diwako_unknownwp_weapon_whitelist findIf  {_x  in _weaponUpper}) > -1) || {_weaponUpper in diwako_unknownwp_local_weapons}) then {
   // weapon not in whitelist
   if ( (random 100) <= diwako_unknownwp_reload_failure ) then {
     // reload failed

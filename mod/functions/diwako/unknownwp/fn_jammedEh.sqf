@@ -20,7 +20,7 @@ if (_unit == ace_player) then {
   if (isNil "diwako_unknownwp_weapon_whitelist") exitWith {};
 
   private _weaponUpper = toUpper(_weapon);
-  if !(_weaponUpper in diwako_unknownwp_weapon_whitelist || {_weaponUpper in diwako_unknownwp_local_weapons}) then {
+  if !(((diwako_unknownwp_weapon_whitelist findIf  {_x  in _weaponUpper}) > -1) || {_weaponUpper in diwako_unknownwp_local_weapons}) then {
     if ((random 100) < diwako_unknownwp_jam_explosion) then {
       // get model patch of current weapon for simplemobject
       private _model = getText(configfile >> "cfgweapons" >> _weapon >> "model");
