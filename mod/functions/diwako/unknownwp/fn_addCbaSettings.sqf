@@ -73,8 +73,8 @@
   "diwako_unknownwp_add_weapons"
   ,"EDITBOX"
   ,[localize "STR_unknownwp_addweapons",localize "STR_unknownwp_addweapons_desc"]
-  ,[CBA_SETTINGS_CAT,"Basic"]
-  ,"arifle_Mk20_plain_F,arifle_CTAR_blk_F"
+  ,[CBA_SETTINGS_CAT,"Basic"]  
+  ,"Mk20,Katiba,MX,SPAR,M4,M16,AR15,AKM,AK74"
   ,true
 ] call CBA_fnc_addSetting;
 

@@ -36,7 +36,7 @@ if (diwako_unknownwp_propagation) then {
         diwako_unknownwp_weapon_whitelist = [];
 
         {
-          diwako_unknownwp_weapon_whitelist pushBackUnique toUpper(primaryWeapon _x);
+          diwako_unknownwp_weapon_whitelist pushBackUnique toUpper ((getUnitLoadout _x  param [0]) param [0,"Nothing"]);
         } forEach ([] call CBA_fnc_players);
 
         if (typeName diwako_unknownwp_add_weapons == typeName "") then {
@@ -49,8 +49,8 @@ if (diwako_unknownwp_propagation) then {
     } else {
         waitUntil { sleep 1; time > 30 };
         waitUntil { sleep 1; !isNil "diwako_unknownwp_weapon_whitelist" };
-        private _weaponUpper = toUpper(primaryWeapon player);
-        if (!(_weaponUpper in diwako_unknownwp_weapon_whitelist || {_weaponUpper in diwako_unknownwp_local_weapons}) && (primaryWeapon player) != "") then {
+        private _weaponUpper =toUpper ((getUnitLoadout player  param [0]) param [0,"Nothing"]);
+        if (!(((diwako_unknownwp_weapon_whitelist findIf  {_x  in _weaponUpper}) > -1) || {_weaponUpper in diwako_unknownwp_local_weapons}) && (primaryWeapon player) != "") then {
           // add weapon to whitelist
           ["diwako_unknownwp_addWeapon",[primaryWeapon player]] call CBA_fnc_serverEvent;
         };
@@ -93,3 +93,4 @@ if (hasInterface) then {
     ace_overheating_cacheWeaponData set [_weapon, nil];
   }] call CBA_fnc_addEventHandler
 };
+
